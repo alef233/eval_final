@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{%load static %}
+{% block contenido %}
+<h1 style= "color: crimson; " ; ><center>Equipos Futbol</center></h1>
+<div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+    {% for im in equipo%}
+      <div class="carousel-item active">
+        <div class="accordion" id="accordion1">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  {{im.nombre}}
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>Fecha de creacion</strong> {{im.annio_creacion}}
+                  <br>
+                 <strong>campeon </strong> {{im.campeon}}
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      {%endfor%}
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+{% endblock %}
